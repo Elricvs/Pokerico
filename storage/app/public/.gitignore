@@ -1,2 +1,7 @@
 *
 !.gitignore
+!images
+!images/pokemon
+!images/pokemon/*.jpg
+!images/type
+!images/type/*.png
