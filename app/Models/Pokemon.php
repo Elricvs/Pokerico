@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pokemon extends Model
 {
-    public function types()
+    use HasFactory;
+
+    public function type1()
     {
-        return $this->belongsToMany(Type::class);
+        return $this->belongsTo(Type::class, "type1_id");
+    }
+
+    public function type2()
+    {
+        return $this->belongsTo(Type::class, "type2_id");
     }
 
     public function attacks()

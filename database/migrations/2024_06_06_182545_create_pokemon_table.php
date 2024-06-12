@@ -17,6 +17,11 @@ return new class extends Migration
             $table->string('imgurl');
             $table->text('description');
             $table->integer('hp');
+            $table->integer('att');
+            $table->integer('def');
+            $table->integer('attspe');
+            $table->integer('defspe');
+            $table->integer('vit');
             $table->float('size');
             $table->float('weight');
             $table->foreignId('type1_id')->references('id')->on('types');
