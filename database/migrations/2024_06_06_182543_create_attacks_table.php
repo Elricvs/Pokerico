@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('attacks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('damage');
+            $table->string('name')->unique;
+            $table->foreignId('type_id')->references('id')->on('types');
             $table->text('description');
-            $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('types');
+            $table->integer('puissance');
+            $table->integer('precision');
+            $table->integer('PP');
             $table->timestamps();
         });
         

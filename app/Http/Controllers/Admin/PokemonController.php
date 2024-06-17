@@ -5,21 +5,49 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PokemonCreateRequest;
 use App\Http\Requests\PokemonUpdateRequest;
+use App\Models\Attack;
 use App\Models\Pokemon;
+use App\Models\Type;
+use App\Models\User;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PokemonController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+    
+        $id = Auth::user()->id;
+        $search = $request->query('search');
+    
+       
+            $query = Pokemon::orderByDesc('updated_at');
+    
+        if ($search) {
+            $query->where(function($query) use ($search) {
+                $query->where('description', 'LIKE', '%'.$search.'%')
+                      ->orWhere('name', 'LIKE', '%'.$search.'%')
+                      ->orWhereHas('type1', function ($query) use ($search) {
+                          $query->where('name', 'LIKE', '%'.$search.'%');
+                      })
+                      ->orWhereHas('type2', function ($query) use ($search) {
+                          $query->where('name', 'LIKE', '%'.$search.'%');
+                      });
+            });
+        }
+    
+        $pokemon = $query->paginate(10);
+    
         $pokemon=Pokemon::with(['type1', 'type2'])->get();
-        return view('pokemon.index', [
+        return view('admin.pokemon.index', [
             'pokemon' => $pokemon,
         ]);
     }
+    
 
 
     /**
@@ -27,7 +55,12 @@ class PokemonController extends Controller
      */
     public function create()
     {
-        return view('admin.pokemon.create');
+        $types=Type::all();
+        $attacks=Attack::all();
+        return view('admin.pokemon.create', [
+            'types' => $types,
+            'attacks' => $attacks,
+        ]);
     }
 
     /**
@@ -50,6 +83,7 @@ class PokemonController extends Controller
         $pokemon->weight = $validated['weight'];
         $pokemon->type1_id = $validated['type1_id'];
         $pokemon->type2_id = $validated['type2_id'] ?? null; // Handle nullable type2_id
+        $pokemon->attack1_id = $validated['attack1_id'];
     
         // Si une image est fournie, la sauvegarder
         if ($request->hasFile('imgurl')) {
@@ -77,7 +111,11 @@ class PokemonController extends Controller
      */
     public function edit(Pokemon $pokemon)
     {
-        //
+        $types = Type::all();
+        return view('admin.pokemon.edit',[
+            'pokemon' => $pokemon,
+            'types' => $types,
+        ]);
     }
 
     /**
@@ -88,7 +126,7 @@ class PokemonController extends Controller
         $validated = $request->validated();
 
         $pokemon->name = $validated['name'];
-        $pokemon->imgurl = $validated['imgurl'];
+        //$pokemon->imgurl = $validated['imgurl'];
         $pokemon->description = $validated['description'];
         $pokemon->hp = $validated['hp'];
         $pokemon->att = $validated['att'];

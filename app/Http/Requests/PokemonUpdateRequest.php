@@ -11,7 +11,7 @@ class PokemonUpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -31,8 +31,8 @@ class PokemonUpdateRequest extends FormRequest
             'attspe' => 'required|integer|min:1',
             'defspe' => 'required|integer|min:1',
             'vit' => 'required|integer|min:1',
-            'size' => 'required|numeric|min:0.1',
-            'weight' => 'required|numeric|min:0.1',
+            'size' => 'required|decimal:0,2|min:0,1',
+            'weight' => 'required|decimal:0,2|min:0,1',
             'type1_id' => 'required|exists:types,id',
             'type2_id' => 'nullable|exists:types,id',
         ];

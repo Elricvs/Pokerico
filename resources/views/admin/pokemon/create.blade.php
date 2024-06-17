@@ -108,6 +108,19 @@
                     <x-input-error :messages="$errors->get('type2_id')" class="mt-2" />
                 </div>
 
+                <div>
+                    <x-input-label for="attack1_id" :value="__('Attaque 1')" />
+                    <select id="attack1_id" name="attack1_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                        <option value="">Aucun</option>
+                        @foreach($attacks as $attack)
+                            <option value="{{ $attack->id }}" {{ old('attack1_id') == $attack->id ? 'selected' : '' }}>
+                                {{ $attack->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <x-input-error :messages="$errors->get('attack1_id')" class="mt-2" />
+                </div>
+
                 <div class="flex justify-end">
                     <x-primary-button type="submit">
                         {{ __('Créer') }}
