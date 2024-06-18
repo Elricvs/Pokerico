@@ -50,7 +50,7 @@
                                                     <x-heroicon-o-pencil class="w-5 h-5" />
                                                 </a>
 
-                                                <button x-data="{ id: {{ $poke->id }} }"
+                                                <button id="Delete{{ $poke->id }}" x-data="{ id: {{ $poke->id }} }"
                                                     x-on:click.prevent="window.selected = id; $dispatch('open-modal', 'confirm-pokemon-deletion');"
                                                     type="submit" class="text-red-400">
                                                     <x-heroicon-o-trash class="w-5 h-5" />
@@ -85,7 +85,7 @@
                     Annuler
                 </x-secondary-button>
 
-                <x-danger-button class="ml-3" type="submit">
+                <x-danger-button id="deleteok" class="ml-3" type="submit">
                     Supprimer
                 </x-danger-button>
             </div>

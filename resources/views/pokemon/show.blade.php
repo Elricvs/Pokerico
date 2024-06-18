@@ -18,33 +18,36 @@
 
         <h3 class="font-bold text-xl mb-4 text-center">Statistiques de base</h3>
         <div class="grid grid-cols-2 gap-6 mb-6">
+            @php
+                $maxStat = 255;
+            @endphp
             <div>
                 <p>Points de vie: {{ $pokemon->hp }}</p>
                 <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
-                    <div class="bg-green-500 h-4 rounded-full" style="width: {{ $pokemon->hp }}%;"></div>
+                    <div class="bg-green-500 h-4 rounded-full" style="width: {{ ($pokemon->hp / $maxStat) * 100 }}%;"></div>
                 </div>
                 <p>Attaque: {{ $pokemon->att }}</p>
                 <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
-                    <div class="bg-red-500 h-4 rounded-full" style="width: {{ $pokemon->att }}%;"></div>
+                    <div class="bg-red-500 h-4 rounded-full" style="width: {{ ($pokemon->att / $maxStat) * 100 }}%;"></div>
                 </div>
                 <p>Défense: {{ $pokemon->def }}</p>
                 <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
-                    <div class="bg-blue-500 h-4 rounded-full" style="width: {{ $pokemon->def }}%;"></div>
+                    <div class="bg-blue-500 h-4 rounded-full" style="width: {{ ($pokemon->def / $maxStat) * 100 }}%;"></div>
                 </div>
                 <p>Taille: {{ $pokemon->size }} m</p>
             </div>
             <div>
                 <p>Attaque spéciale: {{ $pokemon->attspe }}</p>
                 <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
-                    <div class="bg-yellow-500 h-4 rounded-full" style="width: {{ $pokemon->attspe }}%;"></div>
+                    <div class="bg-yellow-500 h-4 rounded-full" style="width: {{ ($pokemon->attspe / $maxStat) * 100 }}%;"></div>
                 </div>
                 <p>Défense spéciale: {{ $pokemon->defspe }}</p>
                 <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
-                    <div class="bg-purple-500 h-4 rounded-full" style="width: {{ $pokemon->defspe }}%;"></div>
+                    <div class="bg-purple-500 h-4 rounded-full" style="width: {{ ($pokemon->defspe / $maxStat) * 100 }}%;"></div>
                 </div>
                 <p>Vitesse: {{ $pokemon->vit }}</p>
                 <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
-                    <div class="bg-orange-500 h-4 rounded-full" style="width: {{ $pokemon->vit }}%;"></div>
+                    <div class="bg-orange-500 h-4 rounded-full" style="width: {{ ($pokemon->vit / $maxStat) * 100 }}%;"></div>
                 </div>
                 <p>Poids: {{ $pokemon->weight }} kg</p>
             </div>

@@ -3,23 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pokemon;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class PokedexController extends Controller
 {
-    public function index(Request $request){
-        $pokemon = Pokemon::where('name', 'LIKE', '%'.$request->query('search').'%')
-        ->orWhere('name', 'LIKE', '%'.$request->query('search').'%')
-        ->orWhereHas('type1', function ($query) use ($request) {
-            $query->where('name', 'LIKE', '%'.$request->query('search').'%');
-        })
-        ->orWhereHas('type2', function ($query) use ($request) {
-            $query->where('name', 'LIKE', '%'.$request->query('search').'%');
-        })->with(['type1', 'type2'])->get();
-        return view('pokemon.index', [
-            'pokemon' => $pokemon,
-        ]);
+    // Exemple de méthode pour afficher la liste des Pokémon avec filtrage
+public function index(Request $request){
+    $query = Pokemon::query();
+    if ($request->has('search') && $request->search) {
+        $query->where('name', 'LIKE', '%'.$request->search.'%');
     }
+    if ($request->has('type') && $request->type) {
+        $query->whereHas('type1', function($q) use ($request) {
+            $q->where('id', $request->type);
+        })->orWhereHas('type2', function($q) use ($request) {
+            $q->where('id', $request->type);
+        });
+    }
+    $pokemon = $query->with(['type1', 'type2'])->get();
+    $types = Type::all();
+    return view('pokemon.index', ['pokemon' => $pokemon, 'types' => $types]);
+}
+
 
     public function show($id){
         $pokemon=Pokemon::find($id);
@@ -27,6 +33,4 @@ class PokedexController extends Controller
             'pokemon' => $pokemon,
         ]);
     }
-
-
 }

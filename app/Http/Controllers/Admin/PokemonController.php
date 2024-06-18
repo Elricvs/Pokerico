@@ -82,12 +82,16 @@ class PokemonController extends Controller
         $pokemon->size = $validated['size'];
         $pokemon->weight = $validated['weight'];
         $pokemon->type1_id = $validated['type1_id'];
-        $pokemon->type2_id = $validated['type2_id'] ?? null; // Handle nullable type2_id
+        $pokemon->type2_id = $validated['type2_id'] ?? null;
         $pokemon->attack1_id = $validated['attack1_id'];
+        $pokemon->attack2_id = $validated['attack1_id'] ?? null;
+        $pokemon->attack3_id = $validated['attack1_id'] ?? null;
+        $pokemon->attack4_id = $validated['attack1_id'] ?? null;
     
         // Si une image est fournie, la sauvegarder
         if ($request->hasFile('imgurl')) {
-            $path = $request->file('imgurl')->store('pokemon', 'public');
+            $path = $request->file('imgurl')->store('images/pokemon', 'public');
+            $path = '/storage/' . $path;
             $pokemon->imgurl = $path;
         }
     
@@ -112,9 +116,11 @@ class PokemonController extends Controller
     public function edit(Pokemon $pokemon)
     {
         $types = Type::all();
+        $attacks= Attack::all();
         return view('admin.pokemon.edit',[
             'pokemon' => $pokemon,
             'types' => $types,
+            'attacks' => $attacks,
         ]);
     }
 
@@ -137,7 +143,17 @@ class PokemonController extends Controller
         $pokemon->size = $validated['size'];
         $pokemon->weight = $validated['weight'];
         $pokemon->type1_id = $validated['type1_id'];
-        $pokemon->type2_id = $validated['type2_id'] ?? null; // Handle nullable type2_id
+        $pokemon->type2_id = $validated['type2_id'] ?? null;
+        $pokemon->attack1_id = $validated['attack1_id'];
+        $pokemon->attack2_id = $validated['attack2_id'] ?? null;
+        $pokemon->attack3_id = $validated['attack3_id'] ?? null;
+        $pokemon->attack4_id = $validated['attack4_id'] ?? null;
+
+        if ($request->hasFile('imgurl')) {
+            $path = $request->file('imgurl')->store('pokemon', 'public');
+            $pokemon->imgurl = $path;
+        }
+
         $pokemon->save();
 
         return redirect()->back();

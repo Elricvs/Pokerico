@@ -23,7 +23,7 @@ class PokemonCreateRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:50',
-            'imgurl' => 'nullable|string|max:255',
+            'imgurl' => 'nullable',
             'description' => 'required|string',
             'hp' => 'required|integer|min:1',
             'att' => 'required|integer|min:1',
@@ -31,14 +31,14 @@ class PokemonCreateRequest extends FormRequest
             'attspe' => 'required|integer|min:1',
             'defspe' => 'required|integer|min:1',
             'vit' => 'required|integer|min:1',
-            'size' => 'required|numeric|min:0.1',
-            'weight' => 'required|numeric|min:0.1',
+            'size' => 'required|decimal:0,2|min:0,1',
+            'weight' => 'required|decimal:0,2|min:0,1',
             'type1_id' => 'required|exists:types,id',
             'type2_id' => 'nullable|exists:types,id',
             'attack1_id' => 'required|exists:attacks,id',
-            // 'attack2_id' => 'nullable|exists:attack,id',
-            // 'attack3_id' => 'nullable|exists:attack,id',
-            // 'attack4_id' => 'nullable|exists:attack,id',
+            'attack2_id' => 'nullable|exists:attacks,id',
+            'attack3_id' => 'nullable|exists:attacks,id',
+            'attack4_id' => 'nullable|exists:attacks,id',
         ];
     }
 }

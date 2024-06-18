@@ -25,7 +25,7 @@
 
                 <div>
                     <x-input-label for="imgurl" :value="__('Image URL')" />
-                    <x-text-input id="imgurl" class="block mt-1 w-full" type="text" name="imgurl" :value="old('imgurl')" />
+                    <x-text-input id="imgurl" class="block mt-1 w-full" type="file" name="imgurl" :value="old('imgurl')" />
                     <x-input-error :messages="$errors->get('imgurl')" class="mt-2" />
                 </div>
 
@@ -121,8 +121,47 @@
                     <x-input-error :messages="$errors->get('attack1_id')" class="mt-2" />
                 </div>
 
+                <div>
+                    <x-input-label for="attack2_id" :value="__('Attaque 2')" />
+                    <select id="attack2_id" name="attack2_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                        <option value="">Aucun</option>
+                        @foreach($attacks as $attack)
+                            <option value="{{ $attack->id }}" {{ old('attack2_id') == $attack->id ? 'selected' : '' }}>
+                                {{ $attack->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <x-input-error :messages="$errors->get('attack2_id')" class="mt-2" />
+                </div>
+
+                <div>
+                    <x-input-label for="attack3_id" :value="__('Attaque 3')" />
+                    <select id="attack3_id" name="attack3_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                        <option value="">Aucun</option>
+                        @foreach($attacks as $attack)
+                            <option value="{{ $attack->id }}" {{ old('attack3_id') == $attack->id ? 'selected' : '' }}>
+                                {{ $attack->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <x-input-error :messages="$errors->get('attack1_id')" class="mt-2" />
+                </div>
+
+                <div>
+                    <x-input-label for="attack4_id" :value="__('Attaque 4')" />
+                    <select id="attack4_id" name="attack4_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                        <option value="">Aucun</option>
+                        @foreach($attacks as $attack)
+                            <option value="{{ $attack->id }}" {{ old('attack4_id') == $attack->id ? 'selected' : '' }}>
+                                {{ $attack->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <x-input-error :messages="$errors->get('attack4_id')" class="mt-2" />
+                </div>
+
                 <div class="flex justify-end">
-                    <x-primary-button type="submit">
+                    <x-primary-button id="create" type="submit">
                         {{ __('Créer') }}
                     </x-primary-button>
                 </div>

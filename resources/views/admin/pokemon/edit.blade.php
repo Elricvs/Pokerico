@@ -132,7 +132,7 @@
                     <select id="attack1_id" name="attack1_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
                         <option value="">-</option>
                         @foreach($attacks as $attack)
-                            <option value="{{ attack1_id}}" {{ old('attack1_id', $pokemon->attack1_id) == attack1_id? 'selected' : '' }}>
+                            <option value="{{ $attack->id }}" {{ old('attack1_id', $pokemon->attack1_id) == $attack->id ? 'selected' : '' }}>
                                 {{ $attack->name }}
                             </option>
                         @endforeach
@@ -145,7 +145,7 @@
                     <select id="attack2_id" name="attack2_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
                         <option value="">-</option>
                         @foreach($attacks as $attack)
-                            <option value="{{ attack2_id}}" {{ old('attack2_id', $pokemon->attack2_id) == attack1_id? 'selected' : '' }}>
+                            <option value="{{ $attack->id }}" {{ old('attack2_id', $pokemon->attack2_id) == $attack->id ? 'selected' : '' }}>
                                 {{ $attack->name }}
                             </option>
                         @endforeach
@@ -158,7 +158,7 @@
                     <select id="attack3_id" name="attack3_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
                         <option value="">-</option>
                         @foreach($attacks as $attack)
-                            <option value="{{ attack3_id}}" {{ old('attack3_id', $pokemon->attack3_id) == attack1_id? 'selected' : '' }}>
+                            <option value="{{ $attack->id }}" {{ old('attack3_id', $pokemon->attack3_id) == $attack->id ? 'selected' : '' }}>
                                 {{ $attack->name }}
                             </option>
                         @endforeach
@@ -171,7 +171,7 @@
                     <select id="attack4_id" name="attack4_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
                         <option value="">-</option>
                         @foreach($attacks as $attack)
-                            <option value="{{ attack4_id}}" {{ old('attack4_id', $pokemon->attack4_id) == attack1_id? 'selected' : '' }}>
+                            <option value="{{ $attack->id }}" {{ old('attack4_id', $pokemon->attack4_id) == $attack->id ? 'selected' : '' }}>
                                 {{ $attack->name }}
                             </option>
                         @endforeach

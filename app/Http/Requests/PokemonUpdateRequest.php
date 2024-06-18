@@ -35,6 +35,10 @@ class PokemonUpdateRequest extends FormRequest
             'weight' => 'required|decimal:0,2|min:0,1',
             'type1_id' => 'required|exists:types,id',
             'type2_id' => 'nullable|exists:types,id',
+            'attack1_id' => 'required|exists:attacks,id',
+            'attack2_id' => 'nullable|exists:attacks,id',
+            'attack3_id' => 'nullable|exists:attacks,id',
+            'attack4_id' => 'nullable|exists:attacks,id',
         ];
     }
 }
