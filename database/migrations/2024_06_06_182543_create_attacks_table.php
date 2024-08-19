@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('attacks', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique;
+            $table->string('name')->unique();
             $table->foreignId('type_id')->references('id')->on('types');
             $table->text('description');
             $table->integer('puissance');
