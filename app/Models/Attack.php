@@ -9,7 +9,7 @@ class Attack extends Model
 {
     public function Pokemons()
     {
-        return $this->hasMany(Pokemon::class);
+        return $this->belongsToMany(Pokemon::class, "attacks_pokemon");
     }
     
     public function type()

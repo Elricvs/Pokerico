@@ -19,24 +19,8 @@ class Pokemon extends Model
         return $this->belongsTo(Type::class, "type2_id");
     }
 
-    public function attack1()
+    public function attacks()
     {
-        return $this->belongsTo(attack::class, "attack1_id");
+        return $this->belongsToMany(attack::class, "attacks_pokemon");
     }
-
-    public function attack2()
-    {
-        return $this->belongsTo(attack::class, "attack2_id");
-    }
-
-    public function attack3()
-    {
-        return $this->belongsTo(attack::class, "attack3_id");
-    }
-
-    public function attack4()
-    {
-        return $this->belongsTo(attack::class, "attack4_id");
-    }
-
 }

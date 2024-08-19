@@ -42,7 +42,7 @@ class PokemonController extends Controller
     
         $pokemon = $query->paginate(10);
     
-        $pokemon=Pokemon::with(['type1', 'type2'])->get();
+        $pokemon=Pokemon::with(['type1', 'type2', 'attacks'])->get();
         return view('admin.pokemon.index', [
             'pokemon' => $pokemon,
         ]);
@@ -83,20 +83,34 @@ class PokemonController extends Controller
         $pokemon->weight = $validated['weight'];
         $pokemon->type1_id = $validated['type1_id'];
         $pokemon->type2_id = $validated['type2_id'] ?? null;
-        $pokemon->attack1_id = $validated['attack1_id'];
-        $pokemon->attack2_id = $validated['attack1_id'] ?? null;
-        $pokemon->attack3_id = $validated['attack1_id'] ?? null;
-        $pokemon->attack4_id = $validated['attack1_id'] ?? null;
     
         // Si une image est fournie, la sauvegarder
-        if ($request->hasFile('imgurl')) {
+        if ($request->hasFile('imgurl')) 
+        {
             $path = $request->file('imgurl')->store('images/pokemon', 'public');
             $path = '/storage/' . $path;
             $pokemon->imgurl = $path;
         }
     
         $pokemon->save();
-    
+
+        $pokemon->attacks()->sync([$validated['attack1_id']], false);
+
+        if($validated['attack2_id'] != null)
+        {
+            $pokemon->attacks()->sync([$validated['attack2_id']], false);
+        }
+
+        if($validated['attack3_id'] != null)
+        {
+            $pokemon->attacks()->sync([$validated['attack3_id']], false);
+        }
+
+        if($validated['attack4_id'] != null)
+        {
+            $pokemon->attacks()->sync([$validated['attack4_id']], false);
+        }
+
         return redirect()->route('pokemon.index');
     }
     
@@ -117,8 +131,9 @@ class PokemonController extends Controller
     {
         $types = Type::all();
         $attacks= Attack::all();
+        $poke = Pokemon::with(['type1', 'type2', 'attacks'])->find($pokemon->id);
         return view('admin.pokemon.edit',[
-            'pokemon' => $pokemon,
+            'pokemon' => $poke,
             'types' => $types,
             'attacks' => $attacks,
         ]);
@@ -144,10 +159,6 @@ class PokemonController extends Controller
         $pokemon->weight = $validated['weight'];
         $pokemon->type1_id = $validated['type1_id'];
         $pokemon->type2_id = $validated['type2_id'] ?? null;
-        $pokemon->attack1_id = $validated['attack1_id'];
-        $pokemon->attack2_id = $validated['attack2_id'] ?? null;
-        $pokemon->attack3_id = $validated['attack3_id'] ?? null;
-        $pokemon->attack4_id = $validated['attack4_id'] ?? null;
 
         if ($request->hasFile('imgurl')) {
             $path = $request->file('imgurl')->store('pokemon', 'public');
@@ -155,6 +166,23 @@ class PokemonController extends Controller
         }
 
         $pokemon->save();
+
+        $pokemon->attacks()->sync([$validated['attack1_id']], true);
+
+        if($validated['attack2_id'] != null)
+        {
+            $pokemon->attacks()->sync([$validated['attack2_id']], false);
+        }
+
+        if($validated['attack3_id'] != null)
+        {
+            $pokemon->attacks()->sync([$validated['attack3_id']], false);
+        }
+
+        if($validated['attack4_id'] != null)
+        {
+            $pokemon->attacks()->sync([$validated['attack4_id']], false);
+        }
 
         return redirect()->back();
     }

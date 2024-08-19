@@ -28,7 +28,7 @@ public function index(Request $request){
 
 
     public function show($id){
-        $pokemon=Pokemon::find($id);
+        $pokemon=Pokemon::with(['attacks'])->find($id);
         return view('pokemon.show', [
             'pokemon' => $pokemon,
         ]);

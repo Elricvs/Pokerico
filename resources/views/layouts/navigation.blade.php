@@ -19,6 +19,10 @@
                     <x-nav-link :href="route('pokemon.index')" :active="request()->routeIs('pokemon.*')">
                     {{ __('Pokemon') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('type.index')" :active="request()->routeIs('type.*')">
+                    {{ __('Type') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -77,6 +81,10 @@
 
             <x-responsive-nav-link :href="route('pokemon.index')" :active="request()->routeIs('pokemon.*')">
                 {{ __('Pokemon') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('type.index')" :active="request()->routeIs('type.*')">
+                {{ __('types') }}
             </x-responsive-nav-link>
         </div>
 

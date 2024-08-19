@@ -67,46 +67,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if($pokemon->attack1)
+                    @foreach($pokemon->attacks as $attack)
                     <tr>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack1->name }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack1->type->name }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack1->description }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack1->puissance }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack1->precision }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack1->PP }}</td>
+                        <td class="px-4 py-2 border-b">{{ $attack->name }}</td>
+                        <td class="px-4 py-2 border-b">{{ $attack->type->name }}</td>
+                        <td class="px-4 py-2 border-b">{{ $attack->description }}</td>
+                        <td class="px-4 py-2 border-b">{{ $attack->puissance }}</td>
+                        <td class="px-4 py-2 border-b">{{ $attack->precision }}</td>
+                        <td class="px-4 py-2 border-b">{{ $attack->PP }}</td>
                     </tr>
-                    @endif
-                    @if($pokemon->attack2)
-                    <tr>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack2->name }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack2->type->name }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack2->description }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack2->puissance }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack2->precision }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack2->PP }}</td>
-                    </tr>
-                    @endif
-                    @if($pokemon->attack3)
-                    <tr>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack3->name }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack3->type->name }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack3->description }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack3->puissance }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack3->precision }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack3->PP }}</td>
-                    </tr>
-                    @endif
-                    @if($pokemon->attack4)
-                    <tr>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack4->name }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack4->type->name }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack4->description }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack4->puissance }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack4->precision }}</td>
-                        <td class="px-4 py-2 border-b">{{ $pokemon->attack4->PP }}</td>
-                    </tr>
-                    @endif
+                    @endforeach
                 </tbody>
             </table>
         </div>

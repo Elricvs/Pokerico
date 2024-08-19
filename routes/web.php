@@ -3,6 +3,7 @@
 use App\Http\Controllers\PokedexController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PokemonController as AdminPokemonController;
+use App\Http\Controllers\Admin\TypeController as AdminTypeController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('pokemon', AdminPokemonController::class);
+    Route::resource('type', AdminTypeController::class);
 });
 
 require __DIR__.'/auth.php';

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             TypeSeeder::class,
             AttackSeeder::class,
             PokemonSeeder::class,
+            AttacksPokemonSeeder::class,
         ]);
     }
 

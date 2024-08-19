@@ -22,7 +22,7 @@ class PokemonCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:50',
+            'name' => 'required|unique:pokemon|string|max:50',
             'imgurl' => 'nullable',
             'description' => 'required|string',
             'hp' => 'required|integer|min:1',
