@@ -15,7 +15,7 @@ class PokemonSeeder extends Seeder
 
         \App\Models\Pokemon::create([
             'name' => 'Électrofeu',
-            'description' => 'Starter',
+            'description' => 'Électrofeu est réputé pour sa capacité à contrôler à la fois la foudre et le feu, combinant les deux éléments pour lancer des attaques dévastatrices. Lorsqu’il charge son énergie, des éclairs zèbrent le ciel autour de lui et la température augmente drastiquement, annonçant une tempête imminente. Son cri puissant résonne comme un tonnerre, intimidant ses adversaires avant même que le combat ne commence.',
             'hp' => 39,
             'att' => 52,
             'def' => 45,
@@ -42,10 +42,6 @@ class PokemonSeeder extends Seeder
             'weight' => 0.4,
             'type1_id' => 7,
             'type2_id' => 5,
-            /*'Attack1_id' => 3,
-            'Attack2_id' => 4,
-            'Attack3_id' => 5,
-            'Attack4_id' => 6,*/
             'imgurl' => '/storage/images/pokemon/Pyrovolt.jpg'
         ]);
 
@@ -62,10 +58,6 @@ class PokemonSeeder extends Seeder
             'weight' => 0.4,
             'type1_id' => 7,
             'type2_id' => 5,
-            /*'Attack1_id' => 3,
-            'Attack2_id' => 4,
-            'Attack3_id' => 5,
-            'Attack4_id' => 6,*/
             'imgurl' => '/storage/images/pokemon/Brasiombre.jpg'
         ]);
 
@@ -82,10 +74,6 @@ class PokemonSeeder extends Seeder
             'weight' => 0.4,
             'type1_id' => 11,
             'type2_id' => 3,
-            /*'Attack1_id' => 1,
-            'Attack2_id' => 2,
-            'Attack3_id' => 7,
-            'Attack4_id' => 9,*/
             'imgurl' => '/storage/images/pokemon/Verdorn.jpg'
         ]);
 
@@ -102,10 +90,6 @@ class PokemonSeeder extends Seeder
             'weight' => 0.4,
             'type1_id' => 11,
             'type2_id' => 3,
-            /*'Attack1_id' => 7,
-            'Attack2_id' => 8,
-            'Attack3_id' => 9,
-            'Attack4_id' => 10,*/
             'imgurl' => '/storage/images/pokemon/Sylvagon.jpg'
         ]);
 
@@ -122,10 +106,6 @@ class PokemonSeeder extends Seeder
             'weight' => 0.4,
             'type1_id' => 11,
             'type2_id' => 3,
-            /*'Attack1_id' => 7,
-            'Attack2_id' => 8,
-            'Attack3_id' => 9,
-            'Attack4_id' => 10,*/
             'imgurl' => '/storage/images/pokemon/Feuillagon.jpg'
         ]);
 
@@ -142,10 +122,6 @@ class PokemonSeeder extends Seeder
             'weight' => 0.4,
             'type1_id' => 4,
             'type2_id' => 13,
-            /*'Attack1_id' => 1,
-            'Attack2_id' => 2,
-            'Attack3_id' => 12,
-            'Attack4_id' => 13,*/
             'imgurl' => '/storage/images/pokemon/Maréspion.jpg'
         ]);
 
@@ -162,10 +138,6 @@ class PokemonSeeder extends Seeder
             'weight' => 0.4,
             'type1_id' => 4,
             'type2_id' => 13,
-            /*'Attack1_id' => 11,
-            'Attack2_id' => 12,
-            'Attack3_id' => 13,
-            'Attack4_id' => 14,*/
             'imgurl' => '/storage/images/pokemon/Mindwave.jpg'
         ]);
 
@@ -182,10 +154,6 @@ class PokemonSeeder extends Seeder
             'weight' => 0.4,
             'type1_id' => 4,
             'type2_id' => 13,
-            /*'Attack1_id' => 11,
-            'Attack2_id' => 12,
-            'Attack3_id' => 13,
-            'Attack4_id' => 14,*/
             'imgurl' => '/storage/images/pokemon/Aqualith.jpg'
         ]);
 
@@ -202,10 +170,6 @@ class PokemonSeeder extends Seeder
             'weight' => 80,
             'type1_id' => 1,
             'type2_id' => null,
-            /*'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Armurion.jpg'
         ]);
 
@@ -222,10 +186,6 @@ class PokemonSeeder extends Seeder
             'weight' => 150,
             'type1_id' => 1,
             'type2_id' => null,
-           /* 'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Metaknight.jpg'
         ]);
 
@@ -242,10 +202,6 @@ class PokemonSeeder extends Seeder
             'weight' => 8.6,
             'type1_id' => 8,
             'type2_id' => null,
-            /*'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Frostine.jpg'
         ]);
 
@@ -262,10 +218,6 @@ class PokemonSeeder extends Seeder
             'weight' => 16,
             'type1_id' => 8,
             'type2_id' => null,
-           /* 'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Cryolynx.jpg'
         ]);
 
@@ -282,10 +234,6 @@ class PokemonSeeder extends Seeder
             'weight' => 250,
             'type1_id' => 2,
             'type2_id' => 14,
-            /*'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Massrold.jpg'
         ]);
 
@@ -302,10 +250,6 @@ class PokemonSeeder extends Seeder
             'weight' => 250,
             'type1_id' => 9,
             'type2_id' => 12,
-            /*'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Venapic.jpg'
         ]);
 
@@ -322,10 +266,6 @@ class PokemonSeeder extends Seeder
             'weight' => 250,
             'type1_id' => 9,
             'type2_id' => 12,
-           /* 'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Venombee.jpg'
         ]);
 
@@ -342,10 +282,6 @@ class PokemonSeeder extends Seeder
             'weight' => 250,
             'type1_id' => 17,
             'type2_id' => 6,
-/*'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Pastelail.jpg'
         ]);
 
@@ -362,10 +298,6 @@ class PokemonSeeder extends Seeder
             'weight' => 250,
             'type1_id' => 17,
             'type2_id' => 6,
-            /*'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Plumélia.jpg'
         ]);
 
@@ -382,10 +314,6 @@ class PokemonSeeder extends Seeder
             'weight' => 250,
             'type1_id' => 17,
             'type2_id' => 6,
-            /*'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Alcyora.jpg'
         ]);
 
@@ -402,10 +330,6 @@ class PokemonSeeder extends Seeder
             'weight' => 3.5,
             'type1_id' => 10,
             'type2_id' => null,
-            /*'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Fluffurnis.jpg'
         ]);
 
@@ -422,16 +346,12 @@ class PokemonSeeder extends Seeder
             'weight' => 4.5,
             'type1_id' => 10,
             'type2_id' => null,
-            /*'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Lumifluff.jpg'
         ]);
 
         \App\Models\Pokemon::create([
             'name' => 'Obscurion',
-            'description' => 'Légendaire',
+            'description' => 'Ce redoutable dragon Légendaire incarne la puissance des ombres et la terreur nocturne. Son apparence imposante et menaçante, avec des ailes gigantesques et des écailles noires comme l’ébène, fait frémir ceux qui osent croiser son chemin. Perché sur un rocher sous un ciel orageux, Obscurion domine les ténèbres avec une présence écrasante, ses yeux rouges perçant l’obscurité d’une lueur malveillante.',
             'hp' => 106,
             'att' => 90,
             'def' => 130,
@@ -442,16 +362,12 @@ class PokemonSeeder extends Seeder
             'weight' => 0.4,
             'type1_id' => 18,
             'type2_id' => null,
-/*'Attack1_id' => 15,
-            'Attack2_id' => 16,
-            'Attack3_id' => 17,
-            'Attack4_id' => 18,*/
             'imgurl' => '/storage/images/pokemon/Obscurion.jpg'
         ]);
 
         \App\Models\Pokemon::create([
             'name' => 'Celestiel',
-            'description' => 'Légendaire',
+            'description' => 'Célestiel est un Pokémon légendaire de type Fée, incarnant la pureté, la magie et la beauté des forêts enchantées. Ce majestueux Pokémon ressemble à une créature féerique avec un corps élancé et gracieux, recouvert d’un pelage bleu pâle qui scintille doucement sous la lumière de la lune. Ses ailes translucides et étincelantes, rappelant les couleurs de l’arc-en-ciel, sont aussi délicates que puissantes, lui permettant de se déplacer avec une légèreté aérienne.',
             'hp' => 106,
             'att' => 130,
             'def' => 90,
@@ -462,10 +378,6 @@ class PokemonSeeder extends Seeder
             'weight' => 0.4,
             'type1_id' => 6,
             'type2_id' => null,
-            /*'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Celestiel.jpg'
         ]);
 
@@ -482,10 +394,6 @@ class PokemonSeeder extends Seeder
             'weight' => 200,
             'type1_id' => 15,
             'type2_id' => 1,
-            /*'Attack1_id' => 19,
-            'Attack2_id' => 20,
-            'Attack3_id' => 21,
-            'Attack4_id' => 22,*/
             'imgurl' => '/storage/images/pokemon/Terraklysm.jpg'
         ]);
     }

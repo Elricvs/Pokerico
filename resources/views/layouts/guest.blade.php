@@ -40,9 +40,6 @@
                     <span>Pokerico</span>
                 </a>
             </div>
-            <div class="nav-links">
-                <a class="font-bold hover:text-emerald-600 transition" href="/">Pokemon</a>
-            </div>
         </nav>
 
         <main>
